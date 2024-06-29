@@ -1,0 +1,54 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import { languages } from "@/i18n/ui";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  return Object.entries(languages).map(([lang]) => ({ params: { lang, slug: 'about' } }));
+}
+
+const { lang } = Astro.params;
+const about = await getEntry("about", `${lang}/-index`);
+
+if (!about) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await about.render();
+const { title, description, meta_title, image } = about.data;
+
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section class='section-sm'>
+    <div class='container'>
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-7">
+          {
+            image && (
+              <ImageMod
+                class="mx-auto mb-6 rounded-lg"
+                src={image}
+                width={200}
+                height={200}
+                alt={title}
+                format="webp"
+              />
+            )
+          }
+          <h2 set:html={markdownify(title)} class="h2 mb-6" />
+          <div class="content">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

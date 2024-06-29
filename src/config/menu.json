@@ -1,0 +1,21 @@
+{
+  "main": [
+    {
+      "name": "home",
+      "url": ""
+    },
+    {
+      "name": "about",
+      "url": "/about"
+    },
+    {
+      "name": "schools",
+      "url": "/schools-list"
+    },
+    {
+      "name": "faq",
+      "url": "/faq"
+    }
+  ],
+  "footer": []
+}

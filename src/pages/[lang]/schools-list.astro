@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from "astro";
+import SchoolSearch from "@/helpers/SchoolSearch.vue";
+import { languages } from "@/i18n/ui";
+import Base from "@/layouts/Base.astro";
+import { getEntry } from "astro:content";
+
+ export const getStaticPaths = (() => {
+  return Object.entries(languages).map(([lang]) => ({ params: { lang, slug: 'schools-list' } }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params;
+const page = await getEntry("schools-list", `${lang}/-index`);
+
+if (!page) {
+  return Astro.redirect('/404');
+}
+
+const { title, meta_title, description, image } = page.data;
+const { Content } = await page.render();
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <!-- <PageHeader title={title} /> -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="content">
+            <Content />
+            <SchoolSearch client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
