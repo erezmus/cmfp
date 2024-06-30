@@ -1,23 +1,25 @@
 <template>
-  <render size="22em" />
+  <FontAwesomeIcon :icon="[prefix, `fa-${icon}`]" :size="size" />
 </template>
 
 <script setup lang="ts">
-import type { IconType } from 'vue3-icons/lib';
-import * as FaIcons from 'vue3-icons/fa6';
-import { h } from 'vue';
+import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 export interface Props {
   icon: string;
-  size?: string | number;
+  size?: string;
 }
 
-type IconMap = Record<string, IconType>;
+library.add(fab);
+library.add(far);
+library.add(fas);
 
-const props = withDefaults(defineProps<Props>(), { size: 16 });
-const iconName = `Fa${props.icon.slice(0, 1).toUpperCase()}${props.icon.slice(1)}`;
-const icon = (FaIcons as IconMap)[iconName];
-const size = typeof props.size === 'number' ? `${props.size}` : props.size?.replace('px', '');
-const render = () => h(icon, { size: `${size}px` });
+const props = defineProps<Props>();
+const [prefix, icon] = props.icon.toLowerCase().split(':');
+const size = (`${props.size}` || '1x') as FontAwesomeIconProps['size'];
 
 </script>

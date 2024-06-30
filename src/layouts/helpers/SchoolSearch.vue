@@ -5,7 +5,7 @@
     </div>
 
     <ul class="w-full list-none m-0 p-0">
-      <li v-for="(school, index) in sortedResults" class="p-4 border-green-700 border-l-2 bg-blue-50" :key="index">
+      <li v-for="(school, index) in  sortedResults " class="p-4 border-green-700 border-l-2 bg-blue-50" :key="index">
         <div class="h5">
           {{ school.name }}
           <template v-if="school.location">
@@ -17,14 +17,13 @@
         </div>
         <div>
           <ul class="list-none flex p-0 mt-2">
-            <li v-for="social in school.social" :key="social.name" class="pr-4">
+            <li v-for="social in  school.social " :key="social.name" class="pr-4">
               <a :href="social.link" target="_blank">
-                <Icon :icon="social.name" :size="24" />
+                <Icon :icon="social.name" prefix="fab" size="2x" />
               </a>
             </li>
           </ul>
         </div>
-
       </li>
     </ul>
   </div>
@@ -63,7 +62,7 @@ const sortedResults = computed(() =>
     return {
       ...rest,
       social: Object.entries(social).map(([name, link]) => ({
-        name: name === 'website' ? 'link' : name,
+        name: name === 'website' ? 'fas:link' : `fab:${name}`,
         link,
       }))
     }
