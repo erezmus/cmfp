@@ -1,5 +1,5 @@
 <template>
-  <FontAwesomeIcon :icon="[prefix, `fa-${icon}`]" :size="size" />
+  <FontAwesomeIcon client:load :icon="[prefix, `fa-${icon}`]" :size="size" />
 </template>
 
 <script setup lang="ts">
@@ -11,6 +11,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 export interface Props {
   icon: string;
+  prefix?: string;
   size?: string;
 }
 
@@ -18,8 +19,8 @@ library.add(fab);
 library.add(far);
 library.add(fas);
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), { size: '1x' });
 const [prefix, icon] = props.icon.toLowerCase().split(':');
-const size = (`${props.size}` || '1x') as FontAwesomeIconProps['size'];
+const size = props.size as FontAwesomeIconProps['size'];
 
 </script>
