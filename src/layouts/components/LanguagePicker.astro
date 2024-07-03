@@ -6,11 +6,11 @@ const lang = getLangFromUrl(Astro.url);
 const langOptions = Object.entries(languages).filter(([l]) => lang !== l);
 ---
 
-<div class="mr-4 mt-3 uppercase border px-2 border-gray-500 rounded-sm">
-  <span class="font-bold" data-lang-toggle>{languages[lang]}</span>
-  <ul data-lang-menu class="hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
+<div class="mr-4 uppercase border mt-2 lg:mt-0">
+  <div class="btn btn-outline-primary btn-sm uppercase" class="font-bold" data-lang-toggle>{languages[lang]}</div>
+  <ul data-lang-menu class="hidden lg:py-1 border-gray-500 rounded-sm absolute">
     {langOptions.map(([lang, label]) => (
-      <li>
+      <li class="btn btn-outline-primary btn-sm b-0 uppercase">
         <a href={getSwitchLangUrl(lang, Astro.url)}>{label}</a>
       </li>
     ))}
@@ -20,7 +20,8 @@ const langOptions = Object.entries(languages).filter(([l]) => lang !== l);
 <script>
 document.addEventListener('astro:page-load', () => {
   const button = document.querySelector('[data-lang-toggle]');
-  button?.addEventListener('click', () => {
+  button?.addEventListener('click', (e) => {
+    e.preventDefault();
     document.querySelector('[data-lang-menu]')?.classList.toggle('hidden');
   });
 });
