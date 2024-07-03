@@ -21,7 +21,7 @@ interface Homepage {
 const homepage = await getEntry("homepage", "-index");
 const testimonial = await getEntry("sections", "testimonial");
 const call_to_action = await getEntry("sections", "call-to-action");
-const { banner, features }: Homepage = homepage.data;
+const { banner, features }: Homepage = homepage?.data || {};
 ---
 
 <Base>
