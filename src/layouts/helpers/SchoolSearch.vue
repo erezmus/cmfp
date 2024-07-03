@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="d-flex">
-      <input type="text" class="w-full" v-model="search" placeholder="search schools" />
+      <input type="text" class="w-full mt-4 py-4" v-model="search" placeholder="search schools" />
     </div>
 
-    <ul class="w-full list-none m-0 p-0">
-      <li v-for="(school, index) in  sortedResults " class="p-4 border-green-700 border-l-2 bg-blue-50" :key="index">
+    <ul class="w-full list-none m-0 mt-8 p-0">
+      <li v-for="(school, index) in  sortedResults " class="p-4 border-l-2 bg-gray-100" :key="index">
         <div class="h5">
           {{ school.name }}
           <template v-if="school.location">
@@ -15,15 +15,13 @@
         <div class="h6">
           {{ school.teacher }}
         </div>
-        <div>
-          <ul class="list-none flex p-0 mt-2">
-            <li v-for="social in  school.social " :key="social.name" class="pr-4">
-              <a :href="social.link" target="_blank">
-                <Icon :icon="social.name" prefix="fab" size="2x" />
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ul class="list-none flex p-0 mt-2 mb-0">
+          <li v-for="social in  school.social " :key="social.name" class="pr-4">
+            <a :href="social.link" target="_blank">
+              <Icon :icon="social.name" prefix="fab" size="xl" />
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
