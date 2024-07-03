@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const langOptions = Object.entries(languages).filter(([l]) => lang !== l);
 ---
 
-<div class="mr-4 uppercase border mt-2 lg:mt-0">
+<div class="mr-4 uppercase mt-2 lg:mt-0">
   <div class="btn btn-outline-primary btn-sm uppercase" class="font-bold" data-lang-toggle>{languages[lang]}</div>
   <ul data-lang-menu class="hidden lg:py-1 border-gray-500 rounded-sm absolute">
     {langOptions.map(([lang, label]) => (
