@@ -13,8 +13,19 @@
       "url": "/schools-list"
     },
     {
-      "name": "faq",
-      "url": "/faq"
+      "name": "resources",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "teacher_guide",
+          "url": "teacher-guide"
+        },
+        {
+          "name": "faq",
+          "url": "/faq"
+        }
+      ]
     }
   ],
   "footer": []
