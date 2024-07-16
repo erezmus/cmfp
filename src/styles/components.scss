@@ -36,26 +36,27 @@
 
 // notice
 .notice {
-  @apply mb-6 rounded-lg border px-8 py-6;
+  @apply mb-3 rounded-md px-4 py-3;
   &-head {
     @apply flex items-center;
     svg {
       @apply mr-3;
     }
     p {
-      @apply font-secondary text-xl font-semibold text-dark dark:text-darkmode-light;
+      @apply font-secondary text-xl font-semibold text-white dark:text-darkmode-light;
     }
   }
   .notice-body {
     @apply mt-3;
     p {
       @apply my-0;
+      @apply text-white;
     }
   }
 
   &.note {
-    @apply text-[#1B83E2];
-    @apply border-current;
+    @apply text-white;
+    @apply bg-[#1B83E2];
   }
 
   &.tip {
