@@ -36,9 +36,9 @@
 
 // notice
 .notice {
-  @apply mb-3 rounded-md px-4 py-3;
+  @apply mb-3 rounded-md px-4 py-2 flex;
   &-head {
-    @apply flex items-center;
+    @apply flex items-center mr-2;
     svg {
       @apply mr-3;
     }
@@ -47,7 +47,6 @@
     }
   }
   .notice-body {
-    @apply mt-3;
     p {
       @apply my-0;
       @apply text-white;

@@ -19,7 +19,7 @@ export const ui = {
     "menu.about": "Sobre",
     "menu.schools": "Escolas",
     "menu.resources": "Recursos",
-    "menu.teacher_guide": "Guia do Professor",
+    "menu.teacher_guide": "Guia pra Professor",
     "menu.faq": "Perguntas frequentes",
   },
 } as const;

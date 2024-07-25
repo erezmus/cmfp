@@ -1,3 +1,4 @@
+import { ui } from "@/i18n/ui";
 import { humanize } from "@/lib/utils/textConverter";
 import React from "react";
 
@@ -75,7 +76,6 @@ function Notice({
             />
           </svg>
         )}
-        <p className="my-0 ml-1.5">{humanize(type)}</p>
       </div>
       <div className="notice-body">{children}</div>
     </div>
