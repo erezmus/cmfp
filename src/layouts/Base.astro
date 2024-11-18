@@ -10,6 +10,7 @@ import { AstroFont } from "astro-font";
 import { ViewTransitions } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
 import { getLangFromUrl } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -98,7 +99,7 @@ const lang = getLangFromUrl(Astro.url);
 
     <!-- title -->
     <title>
-      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
+      {plainify(meta_title ? meta_title : title ? title : ui[lang][config.site.title])}
     </title>
 
     <!-- canonical url -->
@@ -111,7 +112,7 @@ const lang = getLangFromUrl(Astro.url);
     <meta
       name="description"
       content={plainify(
-        description ? description : config.metadata.meta_description
+        ui[lang][config.metadata.meta_description]
       )}
     />
 
@@ -124,7 +125,7 @@ const lang = getLangFromUrl(Astro.url);
     <meta
       property="og:title"
       content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title
+        meta_title ? meta_title : title ? title : ui[lang][config.site.title]
       )}
     />
 
@@ -132,7 +133,7 @@ const lang = getLangFromUrl(Astro.url);
     <meta
       property="og:description"
       content={plainify(
-        description ? description : config.metadata.meta_description
+        ui[lang][config.metadata.meta_description]
       )}
     />
     <meta property="og:type" content="website" />
@@ -145,15 +146,15 @@ const lang = getLangFromUrl(Astro.url);
     <meta
       name="twitter:title"
       content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title
-      )}
+        ui[lang][config.metadata.meta_description]
+        )}
     />
 
     <!-- twitter-description -->
     <meta
       name="twitter:description"
       content={plainify(
-        description ? description : config.metadata.meta_description
+        ui[lang][config.metadata.meta_description]
       )}
     />
 

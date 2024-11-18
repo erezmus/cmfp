@@ -1,6 +1,7 @@
 ---
 import config from "@/config/config.json";
-import ImageMod from "./ImageMod.astro";
+import { ui } from "@/i18n/ui";
+import { getLangFromUrl } from "@/i18n/utils";
 
 const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } =
   Astro.props;
@@ -21,6 +22,8 @@ const {
 } = config.site;
 
 const { theme_switcher }: { theme_switcher: boolean } = config.settings;
+const lang = getLangFromUrl(Astro.url);
+
 ---
 
 <a href="/" class="navbar-brand inline-block">
@@ -32,5 +35,5 @@ const { theme_switcher }: { theme_switcher: boolean } = config.settings;
     </div>
     <span>Palestine</span>
   </h4>
-  <div class="text-sm">Capoeira Movement For Palestine</div>
+  <div class="text-sm">{ui[lang]['logo.tagline']}</div>
 </a>

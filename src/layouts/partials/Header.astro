@@ -119,7 +119,7 @@ type MenuKey = keyof typeof ui[typeof lang];
               class="btn btn-outline-primary btn-sm"
               href={getRelativeLocaleUrl(lang, navigation_button.link)}
             >
-              {navigation_button.label}
+              {ui[lang]['header.add_school']}
             </a>
           </li>
         )
@@ -145,7 +145,7 @@ type MenuKey = keyof typeof ui[typeof lang];
             class="btn btn-outline-primary btn-sm hidden lg:inline-block"
             href={getRelativeLocaleUrl(lang, navigation_button.link)}
           >
-            {navigation_button.label}
+            {ui[lang]['header.add_school']}
           </a>
         )
       }

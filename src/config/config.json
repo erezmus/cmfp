@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Capoeira Movement For Palestine",
+    "title": "logo.tagline",
     "base_url": "https://capoeiramovementforpalestine.org",
     "base_path": "/",
     "trailing_slash": true,
@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/logo.svg",
     "logo_width": "60",
     "logo_height": "60",
-    "logo_text": "Capoeira Movement For Palestine"
+    "logo_text": "logo.tagline"
   },
   "settings": {
     "search": false,
@@ -37,6 +37,6 @@
   "metadata": {
     "meta_author": "no-one-in-particular",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Capoeira movement for Palestine"
+    "meta_description": "logo.tagline"
   }
 }
